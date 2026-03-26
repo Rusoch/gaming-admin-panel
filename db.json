@@ -1,0 +1,412 @@
+{
+  "leaderboards": [
+    {
+      "id": "G77cSJJUuJU",
+      "title": "REST Client Test Cup",
+      "description": "Created from leaderboards.http for manual API checks. yy",
+      "startDate": "2026-04-01T00:00:00.000Z",
+      "endDate": "2026-04-30T23:59:59.999Z",
+      "status": "active",
+      "scoringType": "points",
+      "maxParticipants": 390,
+      "prizes": [
+        {
+          "id": "pr_rest_1",
+          "rank": 1,
+          "name": "Top prize",
+          "type": "coins",
+          "amount": 4,
+          "imageUrl": "https://picsum.photos/seed/rest1/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T12:00:00.000Z",
+      "updatedAt": "2026-03-26T04:57:27.786Z"
+    },
+    {
+      "title": "REST Client Test Cup",
+      "description": "Created from leaderboards.http for manual API checks.",
+      "startDate": "2026-04-01T00:00:00.000Z",
+      "endDate": "2026-04-30T23:59:59.000Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 50,
+      "prizes": [
+        {
+          "id": "pr_rest_11",
+          "rank": 1,
+          "name": "Top prize",
+          "type": "coins",
+          "amount": 500,
+          "imageUrl": "https://picsum.photos/seed/rest1/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T12:00:00.000Z",
+      "updatedAt": "2026-03-26T12:00:00.000Z",
+      "id": "7x2E6wJu8Pk"
+    },
+    {
+      "id": "lb_pg_01",
+      "title": "Spring Sprint Challenge",
+      "description": "Demo row for pagination (page 2+).",
+      "startDate": "2026-05-01T00:00:00.000Z",
+      "endDate": "2026-05-31T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wins",
+      "maxParticipants": 80,
+      "prizes": [
+        {
+          "id": "pr_pg_01",
+          "rank": 1,
+          "name": "Winner pack",
+          "type": "coins",
+          "amount": 250,
+          "imageUrl": "https://picsum.photos/seed/lbpg01/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T11:03:13.240Z"
+    },
+    {
+      "id": "lb_pg_02",
+      "title": "Summer Wager League",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-06-01T00:00:00.000Z",
+      "endDate": "2026-06-30T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wagered",
+      "maxParticipants": 120,
+      "prizes": [
+        {
+          "id": "pr_pg_02",
+          "rank": 1,
+          "name": "Top wagerer",
+          "type": "bonus",
+          "amount": 1,
+          "imageUrl": "https://picsum.photos/seed/lbpg02/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.956Z"
+    },
+    {
+      "id": "lb_pg_03",
+      "title": "Midweek Points Cup",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-04-15T00:00:00.000Z",
+      "endDate": "2026-04-22T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 64,
+      "prizes": [
+        {
+          "id": "pr_pg_03",
+          "rank": 1,
+          "name": "Coins",
+          "type": "coins",
+          "amount": 150,
+          "imageUrl": "https://picsum.photos/seed/lbpg03/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.957Z"
+    },
+    {
+      "id": "lb_pg_04",
+      "title": "Weekend Warriors",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-05-10T00:00:00.000Z",
+      "endDate": "2026-05-17T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wins",
+      "maxParticipants": 32,
+      "prizes": [
+        {
+          "id": "pr_pg_04",
+          "rank": 1,
+          "name": "Free spins",
+          "type": "freeSpin",
+          "amount": 5,
+          "imageUrl": "https://picsum.photos/seed/lbpg04/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.957Z"
+    },
+    {
+      "id": "lb_pg_05",
+      "title": "Rookie Rally",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-07-01T00:00:00.000Z",
+      "endDate": "2026-07-14T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 200,
+      "prizes": [
+        {
+          "id": "pr_pg_05",
+          "rank": 1,
+          "name": "Starter bonus",
+          "type": "coins",
+          "amount": 50,
+          "imageUrl": "https://picsum.photos/seed/lbpg05/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.958Z"
+    },
+    {
+      "id": "lb_pg_06",
+      "title": "High Roller Board",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-05-20T00:00:00.000Z",
+      "endDate": "2026-06-05T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wagered",
+      "maxParticipants": 40,
+      "prizes": [
+        {
+          "id": "pr_pg_06",
+          "rank": 1,
+          "name": "VIP prize",
+          "type": "bonus",
+          "amount": 1,
+          "imageUrl": "https://picsum.photos/seed/lbpg06/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.958Z"
+    },
+    {
+      "id": "lb_pg_07",
+      "title": "Daily Grind Open",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-04-20T00:00:00.000Z",
+      "endDate": "2026-05-05T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 500,
+      "prizes": [
+        {
+          "id": "pr_pg_07",
+          "rank": 1,
+          "name": "Daily top",
+          "type": "coins",
+          "amount": 300,
+          "imageUrl": "https://picsum.photos/seed/lbpg07/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.959Z"
+    },
+    {
+      "id": "lb_pg_08",
+      "title": "Clan Clash Leaderboard",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-08-01T00:00:00.000Z",
+      "endDate": "2026-08-31T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wins",
+      "maxParticipants": 16,
+      "prizes": [
+        {
+          "id": "pr_pg_08",
+          "rank": 1,
+          "name": "Clan trophy",
+          "type": "coins",
+          "amount": 1000,
+          "imageUrl": "https://picsum.photos/seed/lbpg08/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.959Z"
+    },
+    {
+      "id": "lb_pg_09",
+      "title": "Speedrun Special",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-05-25T00:00:00.000Z",
+      "endDate": "2026-05-28T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 24,
+      "prizes": [
+        {
+          "id": "pr_pg_09",
+          "rank": 1,
+          "name": "Speed badge",
+          "type": "freeSpin",
+          "amount": 3,
+          "imageUrl": "https://picsum.photos/seed/lbpg09/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.960Z"
+    },
+    {
+      "id": "lb_pg_10",
+      "title": "Loyalty Ladder",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-06-15T00:00:00.000Z",
+      "endDate": "2026-07-15T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "wagered",
+      "maxParticipants": 90,
+      "prizes": [
+        {
+          "id": "pr_pg_10",
+          "rank": 1,
+          "name": "Loyalty bonus",
+          "type": "bonus",
+          "amount": 1,
+          "imageUrl": "https://picsum.photos/seed/lbpg10/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T09:16:21.960Z"
+    },
+    {
+      "id": "lb_pg_11",
+      "title": "Night Owl Series",
+      "description": "Demo row for pagination.",
+      "startDate": "2026-09-01T00:00:00.000Z",
+      "endDate": "2026-09-30T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 150,
+      "prizes": [
+        {
+          "id": "pr_pg_11",
+          "rank": 1,
+          "name": "Night prize",
+          "type": "coins",
+          "amount": 200,
+          "imageUrl": "https://picsum.photos/seed/lbpg11/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T14:00:00.000Z"
+    },
+    {
+      "id": "lb_pg_12",
+      "title": "Grand Finale Cup",
+      "description": "Demo row for pagination — last row on page 2.",
+      "startDate": "2026-10-01T00:00:00.000Z",
+      "endDate": "2026-10-31T23:59:59.999Z",
+      "status": "active",
+      "scoringType": "wins",
+      "maxParticipants": 48,
+      "prizes": [
+        {
+          "id": "pr_pg_12",
+          "rank": 1,
+          "name": "Finale reward",
+          "type": "coins",
+          "amount": 500,
+          "imageUrl": "https://picsum.photos/seed/lbpg12/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T14:00:00.000Z",
+      "updatedAt": "2026-03-26T14:00:00.000Z"
+    },
+    {
+      "title": "tito",
+      "description": "tito",
+      "startDate": "2026-03-27T00:00:00.000Z",
+      "endDate": "2026-04-08T23:59:59.999Z",
+      "status": "draft",
+      "scoringType": "points",
+      "maxParticipants": 10,
+      "prizes": [
+        {
+          "id": "ddbcd786-2242-4bcf-8442-11fdff61064d",
+          "rank": 1,
+          "name": "tito prize",
+          "type": "coins",
+          "amount": 4,
+          "imageUrl": "https://picsum.photos/200/300"
+        }
+      ],
+      "createdAt": "2026-03-26T04:58:36.900Z",
+      "updatedAt": "2026-03-26T04:58:36.900Z",
+      "id": "PT_dLWPK-X4"
+    }
+  ],
+  "raffles": [
+    {
+      "id": "rf_1",
+      "name": "Spring Mega Raffle",
+      "description": "Win big prizes this spring",
+      "startDate": "2026-03-01T00:00:00.000Z",
+      "endDate": "2026-03-20T00:00:00.000Z",
+      "drawDate": "2026-03-21T00:00:00.000Z",
+      "status": "active",
+      "ticketPrice": 10,
+      "maxTicketsPerUser": 5,
+      "prizes": [
+        {
+          "id": "rp_1",
+          "name": "Car",
+          "type": "bonus",
+          "amount": 1,
+          "quantity": 1,
+          "imageUrl": "https://picsum.photos/seed/rp_1/200/300"
+        },
+        {
+          "id": "rp_2",
+          "name": "Coins Pack",
+          "type": "coins",
+          "amount": 2000,
+          "quantity": 10,
+          "imageUrl": "https://picsum.photos/seed/rp_2/200/300"
+        }
+      ],
+      "totalTicketLimit": 1000,
+      "createdAt": "2026-03-01T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    }
+  ],
+  "wheel": [
+    {
+      "id": "wh_1",
+      "name": "Lucky Wheel",
+      "description": "Spin and win rewards",
+      "status": "active",
+      "segments": [
+        {
+          "id": "sg_1",
+          "label": "100 Coins",
+          "color": "#FF5733",
+          "weight": 40,
+          "prizeType": "coins",
+          "prizeAmount": 100,
+          "imageUrl": "https://picsum.photos/seed/sg_1/50/50"
+        },
+        {
+          "id": "sg_2",
+          "label": "Nothing",
+          "color": "#C0C0C0",
+          "weight": 30,
+          "prizeType": "nothing",
+          "prizeAmount": 0,
+          "imageUrl": "https://picsum.photos/seed/sg_2/50/50"
+        },
+        {
+          "id": "sg_3",
+          "label": "Free Spin",
+          "color": "#33FF57",
+          "weight": 30,
+          "prizeType": "freeSpin",
+          "prizeAmount": 1,
+          "imageUrl": "https://picsum.photos/seed/sg_3/50/50"
+        }
+      ],
+      "maxSpinsPerUser": 3,
+      "spinCost": 5,
+      "backgroundColor": "#ffffff",
+      "borderColor": "#000000",
+      "createdAt": "2026-03-01T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

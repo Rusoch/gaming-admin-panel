@@ -1,0 +1,84 @@
+@baseUrl = http://localhost:3000
+@leaderboardId = lb_1
+
+### List leaderboards
+GET {{baseUrl}}/leaderboards
+Accept: application/json
+
+### Get leaderboard by id
+GET {{baseUrl}}/leaderboards/{{leaderboardId}}
+Accept: application/json
+
+### Create leaderboard
+POST {{baseUrl}}/leaderboards
+Content-Type: application/json
+
+{
+  "title": "REST Client Test Cup ruso",
+  "description": "Created from leaderboards.http for manual API checks.",
+  "startDate": "2026-04-01T00:00:00.000Z",
+  "endDate": "2026-04-30T23:59:59.000Z",
+  "status": "draft",
+  "scoringType": "points",
+  "maxParticipants": 50,
+  "prizes": [
+    {
+      "id": "pr_rest_11",
+      "rank": 1,
+      "name": "Top prize",
+      "type": "coins",
+      "amount": 500,
+      "imageUrl": "https://picsum.photos/seed/rest1/200/300"
+    }
+  ],
+  "createdAt": "2026-03-26T12:00:00.000Z",
+  "updatedAt": "2026-03-26T12:00:00.000Z"
+}
+
+### Replace leaderboard
+PUT {{baseUrl}}/leaderboards/{{leaderboardId}}
+Content-Type: application/json
+
+{
+  "id": "{{leaderboardId}}",
+  "title": "Weekly Champions (edited)",
+  "description": "Top players of the week — updated via REST Client",
+  "startDate": "2026-03-01T00:00:00.000Z",
+  "endDate": "2026-03-31T23:59:59.000Z",
+  "status": "active",
+  "scoringType": "points",
+  "prizes": [
+    {
+      "id": "pr_11",
+      "rank": 1,
+      "name": "Gold Pack",
+      "type": "coins",
+      "amount": 1000,
+      "imageUrl": "https://picsum.photos/seed/pr_11/200/300"
+    },
+    {
+      "id": "pr_12",
+      "rank": 2,
+      "name": "Silver Pack",
+      "type": "coins",
+      "amount": 500,
+      "imageUrl": "https://picsum.photos/seed/pr_12/200/300"
+    }
+  ],
+  "maxParticipants": 100,
+  "createdAt": "2026-03-01T10:00:00.000Z",
+  "updatedAt": "2026-03-26T15:00:00.000Z"
+}
+
+### Partial update leaderboard (PATCH)
+PATCH {{baseUrl}}/leaderboards/{{leaderboardId}}
+Content-Type: application/json
+
+{
+  "status": "draft",
+  "updatedAt": "2026-03-26T16:00:00.000Z"
+}
+
+### Delete leaderboard
+DELETE {{baseUrl}}/leaderboards/{{leaderboardId}}
+Accept: application/json
