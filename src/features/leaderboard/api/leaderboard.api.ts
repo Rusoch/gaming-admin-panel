@@ -1,4 +1,4 @@
-import { httpClient } from "@/shared/api/httpClient";
+import { apiClient } from "@/shared/api/apiClient";
 import type {
 	LeaderboardCreateFormInput,
 	LeaderboardCreateFormOutput,
@@ -10,7 +10,6 @@ import type {
 	LeaderboardResponse,
 } from "../types/leaderboard.types";
 
-/** json-server v1 paginated collection: total count is `items`, not `total`. */
 type JsonServerPaginated<T> = {
 	data: T[];
 	items: number;
@@ -46,7 +45,7 @@ export const getLeaderboardsPage = async (
 	const q = filters.search?.trim();
 	if (q) params.title_contains = q;
 
-	const res = await httpClient.get<
+	const res = await apiClient.get<
 		JsonServerPaginated<Leaderboard> | Leaderboard[]
 	>("/leaderboards", { params });
 
@@ -61,7 +60,7 @@ export const getLeaderboardsPage = async (
 };
 
 export const getLeaderboardById = async (id: string): Promise<Leaderboard> => {
-	const res = await httpClient.get(`/leaderboards/${id}`);
+	const res = await apiClient.get(`/leaderboards/${id}`);
 	return res.data;
 };
 
@@ -83,12 +82,10 @@ export function buildLeaderboardCreatePayload(
 	};
 }
 
-//create leaderboard
-
 export const createLeaderboard = async (
 	data: LeaderboardCreatePayload,
 ): Promise<Leaderboard> => {
-	const res = await httpClient.post("/leaderboards", data);
+	const res = await apiClient.post("/leaderboards", data);
 	return res.data;
 };
 
@@ -139,26 +136,25 @@ export const updateLeaderboard = async (
 	id: string,
 	body: Leaderboard,
 ): Promise<Leaderboard> => {
-	const res = await httpClient.put(`/leaderboards/${id}`, body);
+	const res = await apiClient.put(`/leaderboards/${id}`, body);
 	return res.data;
 };
 
 export const deleteLeaderboard = async (id: string): Promise<void> => {
-	await httpClient.delete(`/leaderboards/${id}`);
+	await apiClient.delete(`/leaderboards/${id}`);
 };
 
 export const patchLeaderboardStatus = async (
 	id: string,
 	status: Leaderboard["status"],
 ): Promise<Leaderboard> => {
-	const res = await httpClient.patch<Leaderboard>(`/leaderboards/${id}`, {
+	const res = await apiClient.patch<Leaderboard>(`/leaderboards/${id}`, {
 		status,
 		updatedAt: new Date().toISOString(),
 	});
 	return res.data;
 };
 
-/** One logical batch: parallel PATCH calls (json-server has no native multi-id route). */
 export const batchUpdateLeaderboardStatus = async (
 	ids: string[],
 	status: Leaderboard["status"],

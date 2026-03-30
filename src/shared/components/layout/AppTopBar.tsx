@@ -3,16 +3,25 @@ import { Link, useLocation } from "react-router-dom";
 import {
 	AppBar,
 	Breadcrumbs,
+	IconButton,
 	Link as MuiLink,
 	Toolbar,
+	Tooltip,
 	Typography,
 } from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import {
+	DarkMode as DarkModeIcon,
+	LightMode as LightModeIcon,
+	NavigateNext as NavigateNextIcon,
+} from "@mui/icons-material";
+import { useColorMode } from "@/shared/hooks/colorMode";
 import { getAppBreadcrumbs } from "./appBreadcrumbs";
 
 const AppTopBar = () => {
 	const { pathname } = useLocation();
+	const { mode, toggleColorMode } = useColorMode();
 	const items = useMemo(() => getAppBreadcrumbs(pathname), [pathname]);
+	const isDark = mode === "dark";
 
 	return (
 		<AppBar
@@ -39,7 +48,7 @@ const AppTopBar = () => {
 					component="div"
 					sx={{ fontWeight: 700, letterSpacing: 0.02, flexShrink: 0 }}
 				>
-					GamifyHub
+					GamingAdminPanel
 				</Typography>
 				<Breadcrumbs
 					separator={<NavigateNextIcon fontSize="small" sx={{ mx: -0.25 }} />}
@@ -74,6 +83,23 @@ const AppTopBar = () => {
 						);
 					})}
 				</Breadcrumbs>
+				<Tooltip title={isDark ? "Light mode" : "Dark mode"}>
+					<IconButton
+						type="button"
+						onClick={toggleColorMode}
+						color="inherit"
+						aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+						edge="end"
+						size="small"
+						sx={{ flexShrink: 0 }}
+					>
+						{isDark ? (
+							<LightModeIcon fontSize="small" />
+						) : (
+							<DarkModeIcon fontSize="small" />
+						)}
+					</IconButton>
+				</Tooltip>
 			</Toolbar>
 		</AppBar>
 	);

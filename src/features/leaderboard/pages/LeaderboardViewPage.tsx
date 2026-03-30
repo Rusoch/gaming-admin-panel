@@ -12,7 +12,8 @@ import {
 	Typography,
 } from "@mui/material";
 import { PageSkeleton } from "@/shared/components/skeleton/AppSkeleton";
-import { useLeaderboard } from "../composables/useLeaderboard";
+import { LEADERBOARD_STATUS_FILTER_LABEL } from "../config/leaderboardStatusLabels";
+import { useLeaderboard } from "../hooks/useLeaderboard";
 import {
 	ROUTES,
 	leaderboardEditPath,
@@ -92,7 +93,7 @@ function LeaderboardViewPage() {
 						<Typography variant="caption" color="text.secondary">
 							Status
 						</Typography>
-						<Typography>{lb.status}</Typography>
+						<Typography>{LEADERBOARD_STATUS_FILTER_LABEL[lb.status]}</Typography>
 					</div>
 					<div>
 						<Typography variant="caption" color="text.secondary">

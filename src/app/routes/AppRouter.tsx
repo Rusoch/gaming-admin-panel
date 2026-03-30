@@ -5,12 +5,19 @@ import { LeaderboardRoutesLayout } from "@/features/leaderboard/components/Leade
 import LeaderboardPage from "@/features/leaderboard/pages/LeaderboardPage";
 import LeaderboardCreateForm from "@/features/leaderboard/pages/LeaderboardCreateForm";
 import LeaderboardViewPage from "@/features/leaderboard/pages/LeaderboardViewPage";
-import RafflePAge from "@/features/raffle/pages/RafflePage";
-import WheelPage from "@/features/wheel/WheelPage";
+import { RaffleRoutesLayout } from "@/features/raffle/components/RaffleRoutesLayout";
+import RafflePage from "@/features/raffle/pages/RafflePage";
+import RaffleCreatePage from "@/features/raffle/pages/RaffleCreatePage";
+import RaffleEditPage from "@/features/raffle/pages/RaffleEditPage";
+import RaffleDetailPage from "@/features/raffle/pages/RaffleDetailPage";
+import { WheelRoutesLayout } from "@/features/wheel/components/WheelRoutesLayout";
+import WheelPage from "@/features/wheel/pages/WheelPage";
+import WheelCreatePage from "@/features/wheel/pages/WheelCreatePage";
+import WheelEditPage from "@/features/wheel/pages/WheelEditPage";
+import WheelDetailPage from "@/features/wheel/pages/WheelDetailPage";
 import DashboardPage from "@/shared/pages/DashboardPage";
 import NotFoundPage from "@/shared/pages/NotFoundPage";
 
-/** Child path segment(s) under `/` (dashboard uses `index: true`). */
 function routePath(fullPath: string): string {
 	return fullPath.replace(/^\//, "");
 }
@@ -42,13 +49,58 @@ const appRouter = createBrowserRouter([
 					},
 				],
 			},
-			{ path: routePath(ROUTES.raffle), element: <RafflePAge /> },
-			{ path: routePath(ROUTES.wheel), element: <WheelPage /> },
+			{
+				element: <RaffleRoutesLayout />,
+				children: [
+					{
+						path: routePath(ROUTES.raffleList),
+						element: <RafflePage />,
+					},
+					{
+						path: routePath(ROUTES.rafflesCreate),
+						element: <RaffleCreatePage />,
+					},
+					{
+						path: routePath(ROUTES.raffleEditPattern),
+						element: <RaffleEditPage />,
+					},
+					{
+						path: routePath(ROUTES.raffleDetailPattern),
+						element: <RaffleDetailPage />,
+					},
+				],
+			},
+			{
+				element: <WheelRoutesLayout />,
+				children: [
+					{
+						path: routePath(ROUTES.wheelList),
+						element: <WheelPage />,
+					},
+					{
+						path: routePath(ROUTES.wheelsCreate),
+						element: <WheelCreatePage />,
+					},
+					{
+						path: routePath(ROUTES.wheelEditPattern),
+						element: <WheelEditPage />,
+					},
+					{
+						path: routePath(ROUTES.wheelDetailPattern),
+						element: <WheelDetailPage />,
+					},
+				],
+			},
 			{ path: "*", element: <NotFoundPage /> },
 		],
 	},
 ]);
 
-const AppRouter = () => <RouterProvider router={appRouter} />;
+const AppRouter = () => (
+	<RouterProvider
+		router={appRouter}
+		future={{ v7_startTransition: true }}
+	/>
+);
 
 export default AppRouter;

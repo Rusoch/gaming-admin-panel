@@ -14,10 +14,8 @@ type Column<T> = {
 	key: keyof T | string;
 	label: string;
 	render?: (row: T) => ReactNode;
-	/** When set, replaces `label` in the header cell (e.g. select-all checkbox). */
 	renderHeader?: () => ReactNode;
 	isActions?: boolean;
-	/** When set with `sort` + `onColumnSort`, header toggles server-side sort for this field. */
 	sortable?: boolean;
 };
 
@@ -25,7 +23,6 @@ type Props<T> = {
 	data: T[];
 	columns: Column<T>[];
 	emptyMessage?: string;
-	/** Active sort string, e.g. `-createdAt` or `title` (json-server `_sort`). */
 	sort?: string;
 	onColumnSort?: (columnKey: string) => void;
 };

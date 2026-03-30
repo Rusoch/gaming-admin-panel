@@ -1,29 +1,15 @@
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useMemo,
-	useState,
-	type ReactNode,
-} from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { Snackbar, Alert } from "@mui/material";
-
-type Severity = "success" | "error" | "info" | "warning";
-
-type ToastContextValue = {
-	showToast: (msg: string, sev?: Severity) => void;
-};
-
-const ToastContext = createContext<ToastContextValue | null>(null);
+import { ToastContext, type ToastSeverity } from "./toastContext";
 
 const AUTO_HIDE_MS = 6000;
 
 export function ToastProvider({ children }: { children: ReactNode }) {
 	const [open, setOpen] = useState(false);
 	const [message, setMessage] = useState("");
-	const [severity, setSeverity] = useState<Severity>("info");
+	const [severity, setSeverity] = useState<ToastSeverity>("info");
 
-	const showToast = useCallback((msg: string, sev: Severity = "info") => {
+	const showToast = useCallback((msg: string, sev: ToastSeverity = "info") => {
 		setMessage(msg);
 		setSeverity(sev);
 		setOpen(true);
@@ -48,12 +34,4 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 			</Snackbar>
 		</ToastContext.Provider>
 	);
-}
-
-export function useToast(): ToastContextValue {
-	const ctx = useContext(ToastContext);
-	if (!ctx) {
-		throw new Error("useToast must be used within ToastProvider");
-	}
-	return ctx;
 }

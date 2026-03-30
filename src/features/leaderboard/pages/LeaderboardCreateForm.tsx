@@ -27,9 +27,9 @@ import {
 	buildLeaderboardUpdatePayload,
 	leaderboardToFormInput,
 } from "@/features/leaderboard/api/leaderboard.api";
-import { useCreateLeaderboard } from "@/features/leaderboard/composables/useCreateLeaderboard";
-import { useLeaderboard } from "@/features/leaderboard/composables/useLeaderboard";
-import { useUpdateLeaderboard } from "@/features/leaderboard/composables/useUpdateLeaderboard";
+import { useCreateLeaderboard } from "@/features/leaderboard/hooks/useCreateLeaderboard";
+import { useLeaderboard } from "@/features/leaderboard/hooks/useLeaderboard";
+import { useUpdateLeaderboard } from "@/features/leaderboard/hooks/useUpdateLeaderboard";
 import {
 	LEADERBOARD_PRIZE_TYPE_OPTIONS,
 	LEADERBOARD_SCORING_OPTIONS,
@@ -43,7 +43,7 @@ import {
 	type LeaderboardCreateFormOutput,
 } from "@/features/leaderboard/validation/leaderboardCreateForm.schema";
 import { SkeletonBlock, SkeletonLines } from "@/shared/components/skeleton/AppSkeleton";
-import { useToast } from "@/shared/composables/toast";
+import { useToast } from "@/shared/hooks/toast";
 import { ROUTES } from "@/shared/constants/routes";
 
 function UnsavedLeaveDialog({ blocker }: { blocker: Blocker }) {
@@ -254,7 +254,9 @@ function LeaderboardCreateForm() {
 			<h2>{isEdit ? "Edit Leaderboard" : "Create Leaderboard"}</h2>
 			<Box
 				component="form"
-				onSubmit={handleSubmit(onValid)}
+				onSubmit={(e) => {
+					void handleSubmit(onValid)(e);
+				}}
 				noValidate
 				sx={{
 					border: "1px solid #ccc",
@@ -327,7 +329,7 @@ function LeaderboardCreateForm() {
 							label="Start date"
 							type="date"
 							required
-							slotProps={{ inputLabel: { shrink: true } }}
+							InputLabelProps={{ shrink: true }}
 							error={!!errors.startDate}
 							helperText={errors.startDate?.message}
 						/>
@@ -343,7 +345,7 @@ function LeaderboardCreateForm() {
 							label="End date"
 							type="date"
 							required
-							slotProps={{ inputLabel: { shrink: true } }}
+							InputLabelProps={{ shrink: true }}
 							error={!!errors.endDate}
 							helperText={errors.endDate?.message}
 						/>
@@ -387,7 +389,7 @@ function LeaderboardCreateForm() {
 							onBlur={field.onBlur}
 							name={field.name}
 							inputRef={field.ref}
-							slotProps={{ htmlInput: { min: 2 } }}
+							inputProps={{ min: 2 }}
 							error={!!errors.maxParticipants}
 							helperText={errors.maxParticipants?.message}
 						/>

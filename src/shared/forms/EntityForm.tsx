@@ -1,8 +1,8 @@
 import {
   useState,
-  type ReactNode,
-  type SubmitEvent,
+  type FormEvent,
   type ReactElement,
+  type ReactNode,
 } from "react";
 import {
   Box,
@@ -56,7 +56,7 @@ export function EntityForm<T>({
     setFormState((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(formState);
   };
@@ -123,11 +123,9 @@ export function EntityForm<T>({
               )
             }
             required={field.required}
-            slotProps={{
-              htmlInput: {
-                min: field.min,
-                max: field.max,
-              },
+            inputProps={{
+              ...(field.min !== undefined ? { min: field.min } : {}),
+              ...(field.max !== undefined ? { max: field.max } : {}),
             }}
           />
         )

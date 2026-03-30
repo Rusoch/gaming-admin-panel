@@ -15,17 +15,50 @@ export function getAppBreadcrumbs(pathname: string): AppBreadcrumbItem[] {
 		return [{ label: "Dashboard" }];
 	}
 
-	if (path === ROUTES.raffle) {
-		return [
-			{ label: "Dashboard", to: ROUTES.dashboard },
-			{ label: "Raffle" },
-		];
+	const raffleBase: AppBreadcrumbItem[] = [
+		{ label: "Dashboard", to: ROUTES.dashboard },
+		{ label: "Raffles", to: ROUTES.raffleList },
+	];
+
+	if (path === ROUTES.raffleList) {
+		return [...raffleBase.slice(0, -1), { label: "Raffles" }];
 	}
-	if (path === ROUTES.wheel) {
-		return [
-			{ label: "Dashboard", to: ROUTES.dashboard },
-			{ label: "Wheel" },
-		];
+
+	if (path === ROUTES.rafflesCreate) {
+		return [...raffleBase, { label: "Create" }];
+	}
+
+	const raffleEditMatch = /^\/raffles\/([^/]+)\/edit$/.exec(path);
+	if (raffleEditMatch) {
+		return [...raffleBase, { label: "Edit" }];
+	}
+
+	const raffleDetailMatch = /^\/raffles\/([^/]+)$/.exec(path);
+	if (raffleDetailMatch?.[1] && raffleDetailMatch[1] !== "create") {
+		return [...raffleBase, { label: "Details" }];
+	}
+
+	const wheelBase: AppBreadcrumbItem[] = [
+		{ label: "Dashboard", to: ROUTES.dashboard },
+		{ label: "Wheels", to: ROUTES.wheelList },
+	];
+
+	if (path === ROUTES.wheelList) {
+		return [...wheelBase.slice(0, -1), { label: "Wheels" }];
+	}
+
+	if (path === ROUTES.wheelsCreate) {
+		return [...wheelBase, { label: "Create" }];
+	}
+
+	const wheelEditMatch = /^\/wheels\/([^/]+)\/edit$/.exec(path);
+	if (wheelEditMatch) {
+		return [...wheelBase, { label: "Edit" }];
+	}
+
+	const wheelDetailMatch = /^\/wheels\/([^/]+)$/.exec(path);
+	if (wheelDetailMatch?.[1] && wheelDetailMatch[1] !== "create") {
+		return [...wheelBase, { label: "Details" }];
 	}
 
 	const leaderboardBase: AppBreadcrumbItem[] = [

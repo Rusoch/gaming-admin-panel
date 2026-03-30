@@ -7,30 +7,9 @@ import {
 	ListItemIcon,
 	ListItemText,
 } from "@mui/material";
-import type { SvgIconProps } from "@mui/material/SvgIcon";
-import type { ComponentType } from "react";
-import CasinoOutlinedIcon from "@mui/icons-material/CasinoOutlined";
-import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
-import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import { Link, Outlet } from "react-router-dom";
-import { ROUTES } from "@/shared/constants/routes";
+import { APP_SIDEBAR_NAV_ITEMS } from "@/shared/constants/appNavConfig";
 import AppTopBar from "./AppTopBar";
-
-interface AppNavItem {
-	readonly to: string;
-	readonly label: string;
-	readonly Icon: ComponentType<SvgIconProps>;
-}
-
-const APP_NAV_ITEMS: readonly AppNavItem[] = [
-	{ to: ROUTES.dashboard, label: "Dashboard", Icon: DashboardOutlinedIcon },
-	{ to: ROUTES.leaderboardList, label: "Leaderboard", Icon: EmojiEventsOutlinedIcon },
-	{ to: ROUTES.raffle, label: "Raffle", Icon: ConfirmationNumberOutlinedIcon },
-	{ to: ROUTES.wheel, label: "Wheel", Icon: CasinoOutlinedIcon },
-];
-
-const navListItemIconSx = { minWidth: 40, color: "primary.main" } as const;
 
 const AppLayout = () => {
 	return (
@@ -60,10 +39,15 @@ const AppLayout = () => {
 				}}
 			>
 				<List dense disablePadding sx={{ py: 1.5, px: 1 }}>
-					{APP_NAV_ITEMS.map(({ to, label, Icon }) => (
+					{APP_SIDEBAR_NAV_ITEMS.map(({ to, label, Icon, iconSx }) => (
 						<ListItem key={to} disablePadding>
 							<ListItemButton component={Link} to={to}>
-								<ListItemIcon sx={navListItemIconSx}>
+								<ListItemIcon
+									sx={{
+										minWidth: 40,
+										...iconSx,
+									}}
+								>
 									<Icon fontSize="small" />
 								</ListItemIcon>
 								<ListItemText primary={label} />

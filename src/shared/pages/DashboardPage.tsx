@@ -7,10 +7,7 @@ import {
 	CardContent,
 	Typography,
 } from "@mui/material";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
-import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
-import CasinoOutlinedIcon from "@mui/icons-material/CasinoOutlined";
-import { ROUTES } from "@/shared/constants/routes";
+import { DASHBOARD_FEATURE_CARD_ITEMS } from "@/shared/constants/appNavConfig";
 
 interface DashboardFeatureDefinition {
 	title: string;
@@ -55,7 +52,6 @@ function DashboardFeatureCard({
 							alignItems: "center",
 							gap: 1.5,
 							mb: 1.5,
-							color: "primary.main",
 						}}
 					>
 						<Box
@@ -72,11 +68,18 @@ function DashboardFeatureCard({
 						>
 							{icon}
 						</Box>
-						<Typography variant="h6" component="h2">
+						<Typography variant="h6" component="h2" color="primary">
 							{title}
 						</Typography>
 					</Box>
-					<Typography variant="body2" color="text.secondary">
+					<Typography
+						variant="body1"
+						color="text.secondary"
+						sx={{
+							fontSize: "1.0625rem",
+							lineHeight: 1.75,
+						}}
+					>
 						{description}
 					</Typography>
 				</CardContent>
@@ -85,29 +88,15 @@ function DashboardFeatureCard({
 	);
 }
 
-const FEATURES: readonly DashboardFeatureDefinition[] = [
-		{
-			title: "Leaderboards",
-			description:
-				"Create and manage competitive leaderboards, prizes, and participant limits.",
-			to: ROUTES.leaderboardList,
-			icon: <EmojiEventsOutlinedIcon fontSize="large" />,
-		},
-		{
-			title: "Raffles",
-			description:
-				"Configure ticket-based raffles, prize tiers, and draw schedules.",
-			to: ROUTES.raffle,
-			icon: <ConfirmationNumberOutlinedIcon fontSize="large" />,
-		},
-		{
-			title: "Spin wheels",
-			description:
-				"Build weighted wheel segments, costs, and spin limits for players.",
-			to: ROUTES.wheel,
-			icon: <CasinoOutlinedIcon fontSize="large" />,
-		},
-	];
+const FEATURES: readonly DashboardFeatureDefinition[] =
+	DASHBOARD_FEATURE_CARD_ITEMS.map(
+		({ to, title, description, Icon, cardIconSx }) => ({
+			to,
+			title,
+			description,
+			icon: <Icon sx={cardIconSx} />,
+		}),
+	);
 
 function DashboardPage() {
 	return (
@@ -116,7 +105,7 @@ function DashboardPage() {
 				Dashboard
 			</Typography>
 			<Typography color="text.secondary" sx={{ mb: 3, maxWidth: 640 }}>
-				Choose a gaming feature to configure. Each area is independent—open the
+				Choose a gaming feature to configure. Each area is independent. Open a
 				card to go straight to that module.
 			</Typography>
 			<Box

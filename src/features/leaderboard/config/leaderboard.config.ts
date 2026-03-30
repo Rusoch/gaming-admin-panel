@@ -1,4 +1,5 @@
 import type { Leaderboard } from "@/features/leaderboard/types/leaderboard.types";
+import { LEADERBOARD_STATUS_FILTER_LABEL } from "./leaderboardStatusLabels";
 
 export const leaderboardTableColumns = [
 	{
@@ -12,7 +13,8 @@ export const leaderboardTableColumns = [
 	{
 		key: "status",
 		label: "Status",
-		render: (row: Leaderboard) => row.status.toUpperCase(),
+		render: (row: Leaderboard) =>
+			LEADERBOARD_STATUS_FILTER_LABEL[row.status],
 	},
 	{
 		key: "scoringType",

@@ -221,50 +221,6 @@
       "updatedAt": "2026-03-26T09:16:21.959Z"
     },
     {
-      "id": "lb_pg_09",
-      "title": "Speedrun Special",
-      "description": "Demo row for pagination.",
-      "startDate": "2026-05-25T00:00:00.000Z",
-      "endDate": "2026-05-28T23:59:59.999Z",
-      "status": "draft",
-      "scoringType": "points",
-      "maxParticipants": 24,
-      "prizes": [
-        {
-          "id": "pr_pg_09",
-          "rank": 1,
-          "name": "Speed badge",
-          "type": "freeSpin",
-          "amount": 3,
-          "imageUrl": "https://picsum.photos/seed/lbpg09/200/300"
-        }
-      ],
-      "createdAt": "2026-03-26T14:00:00.000Z",
-      "updatedAt": "2026-03-26T09:16:21.960Z"
-    },
-    {
-      "id": "lb_pg_10",
-      "title": "Loyalty Ladder",
-      "description": "Demo row for pagination.",
-      "startDate": "2026-06-15T00:00:00.000Z",
-      "endDate": "2026-07-15T23:59:59.999Z",
-      "status": "draft",
-      "scoringType": "wagered",
-      "maxParticipants": 90,
-      "prizes": [
-        {
-          "id": "pr_pg_10",
-          "rank": 1,
-          "name": "Loyalty bonus",
-          "type": "bonus",
-          "amount": 1,
-          "imageUrl": "https://picsum.photos/seed/lbpg10/200/300"
-        }
-      ],
-      "createdAt": "2026-03-26T14:00:00.000Z",
-      "updatedAt": "2026-03-26T09:16:21.960Z"
-    },
-    {
       "id": "lb_pg_11",
       "title": "Night Owl Series",
       "description": "Demo row for pagination.",
@@ -329,6 +285,28 @@
       "createdAt": "2026-03-26T04:58:36.900Z",
       "updatedAt": "2026-03-26T04:58:36.900Z",
       "id": "PT_dLWPK-X4"
+    },
+    {
+      "id": "IERL13rvvD4",
+      "title": "test sunday",
+      "description": "test sunday",
+      "startDate": "2026-03-30T00:00:00.000Z",
+      "endDate": "2026-04-07T23:59:59.999Z",
+      "status": "active",
+      "scoringType": "wagered",
+      "maxParticipants": 10,
+      "prizes": [
+        {
+          "id": "36f73e76-1f0d-4b06-820f-a6eaa4a1d0b0",
+          "rank": 1,
+          "name": "test sunday",
+          "type": "freeSpin",
+          "amount": 20,
+          "imageUrl": "https://picsum.photos/200/300"
+        }
+      ],
+      "createdAt": "2026-03-29T11:58:55.369Z",
+      "updatedAt": "2026-03-29T11:59:16.310Z"
     }
   ],
   "raffles": [
@@ -337,11 +315,11 @@
       "name": "Spring Mega Raffle",
       "description": "Win big prizes this spring",
       "startDate": "2026-03-01T00:00:00.000Z",
-      "endDate": "2026-03-20T00:00:00.000Z",
-      "drawDate": "2026-03-21T00:00:00.000Z",
+      "endDate": "2026-03-20T23:59:59.999Z",
+      "drawDate": "2026-03-21T12:00:00.000Z",
       "status": "active",
       "ticketPrice": 10,
-      "maxTicketsPerUser": 5,
+      "maxTicketsPerUser": 6,
       "prizes": [
         {
           "id": "rp_1",
@@ -356,13 +334,125 @@
           "name": "Coins Pack",
           "type": "coins",
           "amount": 2000,
-          "quantity": 10,
+          "quantity": 10000,
           "imageUrl": "https://picsum.photos/seed/rp_2/200/300"
         }
       ],
       "totalTicketLimit": 1000,
       "createdAt": "2026-03-01T10:00:00.000Z",
-      "updatedAt": "2026-03-10T10:00:00.000Z"
+      "updatedAt": "2026-03-29T12:10:27.968Z"
+    },
+    {
+      "id": "rf_2",
+      "name": "Weekend Flash Draw",
+      "description": "Short window: grab tickets Friday–Sunday. Great for testing filters and draft state.",
+      "startDate": "2026-04-04T00:00:00.000Z",
+      "endDate": "2026-04-06T23:59:59.999Z",
+      "drawDate": "2026-04-07T18:00:00.000Z",
+      "status": "draft",
+      "ticketPrice": 2.5,
+      "maxTicketsPerUser": 10,
+      "prizes": [
+        {
+          "id": "rp_2a",
+          "name": "Bonus credit",
+          "type": "bonus",
+          "amount": 50,
+          "quantity": 3,
+          "imageUrl": "https://picsum.photos/seed/rf2a/200/300"
+        },
+        {
+          "id": "rp_2b",
+          "name": "Free spins bundle",
+          "type": "freeSpin",
+          "amount": 10,
+          "quantity": 20,
+          "imageUrl": "https://picsum.photos/seed/rf2b/200/300"
+        }
+      ],
+      "totalTicketLimit": 500,
+      "createdAt": "2026-03-28T09:00:00.000Z",
+      "updatedAt": "2026-03-28T09:00:00.000Z"
+    },
+    {
+      "id": "rf_3",
+      "name": "January VIP Raffle (completed)",
+      "description": "Already drawn — use to test drawn status and read-only detail.",
+      "startDate": "2026-01-01T00:00:00.000Z",
+      "endDate": "2026-01-14T23:59:59.999Z",
+      "drawDate": "2026-01-15T20:00:00.000Z",
+      "status": "drawn",
+      "ticketPrice": 25,
+      "maxTicketsPerUser": 2,
+      "prizes": [
+        {
+          "id": "rp_3a",
+          "name": "Grand prize pool",
+          "type": "coins",
+          "amount": 50000,
+          "quantity": 1,
+          "imageUrl": "https://picsum.photos/seed/rf3a/200/300"
+        },
+        {
+          "id": "rp_3b",
+          "name": "Runner-up coins",
+          "type": "coins",
+          "amount": 5000,
+          "quantity": 5,
+          "imageUrl": "https://picsum.photos/seed/rf3b/200/300"
+        }
+      ],
+      "totalTicketLimit": 200,
+      "createdAt": "2025-12-20T12:00:00.000Z",
+      "updatedAt": "2026-01-15T20:05:00.000Z"
+    },
+    {
+      "id": "rf_5",
+      "name": "Cancelled promo test",
+      "description": "Cancelled raffle row for status filter testing.",
+      "startDate": "2026-02-01T00:00:00.000Z",
+      "endDate": "2026-02-28T23:59:59.999Z",
+      "drawDate": "2026-03-01T12:00:00.000Z",
+      "status": "cancelled",
+      "ticketPrice": 1,
+      "maxTicketsPerUser": 5,
+      "prizes": [
+        {
+          "id": "rp_5a",
+          "name": "Small coins",
+          "type": "coins",
+          "amount": 100,
+          "quantity": 10,
+          "imageUrl": "https://picsum.photos/seed/rf5a/200/300"
+        }
+      ],
+      "totalTicketLimit": 100,
+      "createdAt": "2026-02-01T10:00:00.000Z",
+      "updatedAt": "2026-02-15T14:00:00.000Z"
+    },
+    {
+      "name": "test Sunday",
+      "description": "test Sunday",
+      "startDate": "2026-03-29T00:00:00.000Z",
+      "endDate": "2026-03-30T23:59:59.999Z",
+      "drawDate": "2026-03-31T12:00:00.000Z",
+      "status": "draft",
+      "ticketPrice": 1,
+      "maxTicketsPerUser": 1,
+      "prizes": [
+        {
+          "id": "3d299747-8fd3-4076-bf31-3c58e2ac79a4",
+          "name": "test Sunday prize",
+          "type": "coins",
+          "amount": 3,
+          "quantity": 1,
+          "imageUrl": "https://picsum.photos/200/300"
+        }
+      ],
+      "totalTicketLimit": null,
+      "createdAt": "2026-03-29T12:11:15.622Z",
+      "updatedAt": "2026-03-29T12:11:15.622Z",
+      "id": "2QYkvJ0fD_Q"
     }
   ],
   "wheel": [
@@ -406,6 +496,188 @@
       "borderColor": "#000000",
       "createdAt": "2026-03-01T10:00:00.000Z",
       "updatedAt": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "wh_2",
+      "name": "Bronze Daily Spinner",
+      "description": "Four equal segments (25% each) — easy to eyeball the preview and spin animation.",
+      "status": "active",
+      "segments": [
+        {
+          "id": "wh2_s1",
+          "label": "10 coins",
+          "color": "#e74c3c",
+          "weight": 25,
+          "prizeType": "coins",
+          "prizeAmount": 10,
+          "imageUrl": "https://picsum.photos/seed/wh2a/50/50"
+        },
+        {
+          "id": "wh2_s2",
+          "label": "25 coins",
+          "color": "#f1c40f",
+          "weight": 25,
+          "prizeType": "coins",
+          "prizeAmount": 25,
+          "imageUrl": "https://picsum.photos/seed/wh2b/50/50"
+        },
+        {
+          "id": "wh2_s3",
+          "label": "Try again",
+          "color": "#95a5a6",
+          "weight": 25,
+          "prizeType": "nothing",
+          "prizeAmount": 0,
+          "imageUrl": "https://picsum.photos/seed/wh2c/50/50"
+        },
+        {
+          "id": "wh2_s4",
+          "label": "1 free spin",
+          "color": "#2ecc71",
+          "weight": 25,
+          "prizeType": "freeSpin",
+          "prizeAmount": 1,
+          "imageUrl": "https://picsum.photos/seed/wh2d/50/50"
+        }
+      ],
+      "maxSpinsPerUser": 5,
+      "spinCost": 0,
+      "backgroundColor": "#1a1a2e",
+      "borderColor": "#00e676",
+      "createdAt": "2026-03-20T10:00:00.000Z",
+      "updatedAt": "2026-03-20T10:00:00.000Z"
+    },
+    {
+      "id": "wh_3",
+      "name": "High Roller Wheel",
+      "description": "Five segments, weighted toward smaller wins — inactive for status filter tests.",
+      "status": "inactive",
+      "segments": [
+        {
+          "id": "wh3_s1",
+          "label": "JACKPOT",
+          "color": "#c0392b",
+          "weight": 5,
+          "prizeType": "bonus",
+          "prizeAmount": 500,
+          "imageUrl": "https://picsum.photos/seed/wh3a/50/50"
+        },
+        {
+          "id": "wh3_s2",
+          "label": "100 coins",
+          "color": "#e67e22",
+          "weight": 15,
+          "prizeType": "coins",
+          "prizeAmount": 100,
+          "imageUrl": "https://picsum.photos/seed/wh3b/50/50"
+        },
+        {
+          "id": "wh3_s3",
+          "label": "50 coins",
+          "color": "#f39c12",
+          "weight": 25,
+          "prizeType": "coins",
+          "prizeAmount": 50,
+          "imageUrl": "https://picsum.photos/seed/wh3c/50/50"
+        },
+        {
+          "id": "wh3_s4",
+          "label": "Bonus 10",
+          "color": "#9b59b6",
+          "weight": 25,
+          "prizeType": "bonus",
+          "prizeAmount": 10,
+          "imageUrl": "https://picsum.photos/seed/wh3d/50/50"
+        },
+        {
+          "id": "wh3_s5",
+          "label": "No prize",
+          "color": "#34495e",
+          "weight": 30,
+          "prizeType": "nothing",
+          "prizeAmount": 0,
+          "imageUrl": "https://picsum.photos/seed/wh3e/50/50"
+        }
+      ],
+      "maxSpinsPerUser": 2,
+      "spinCost": 10,
+      "backgroundColor": "#2c1810",
+      "borderColor": "#d4af37",
+      "createdAt": "2026-03-22T11:00:00.000Z",
+      "updatedAt": "2026-03-22T11:00:00.000Z"
+    },
+    {
+      "id": "wh_4",
+      "name": "Draft Mini Wheel",
+      "description": "Draft status — two segments only, good for create/edit flow comparison.",
+      "status": "draft",
+      "segments": [
+        {
+          "id": "wh4_s1",
+          "label": "Win",
+          "color": "#27ae60",
+          "weight": 40,
+          "prizeType": "coins",
+          "prizeAmount": 20,
+          "imageUrl": ""
+        },
+        {
+          "id": "wh4_s2",
+          "label": "Lose",
+          "color": "#7f8c8d",
+          "weight": 40,
+          "prizeType": "nothing",
+          "prizeAmount": 0,
+          "imageUrl": ""
+        },
+        {
+          "id": "4da17eee-e7e4-4cd0-87f7-4fc05f012b96",
+          "label": "Segment 3",
+          "color": "#00e676",
+          "weight": 20,
+          "prizeType": "coins",
+          "prizeAmount": 1,
+          "imageUrl": ""
+        }
+      ],
+      "maxSpinsPerUser": 1,
+      "spinCost": 1,
+      "backgroundColor": "#ecf0f1",
+      "borderColor": "#2c3e50",
+      "createdAt": "2026-03-29T10:00:00.000Z",
+      "updatedAt": "2026-03-29T12:21:08.360Z"
+    },
+    {
+      "name": "Wheel Ruso",
+      "description": "Wheel Ruso ",
+      "status": "draft",
+      "segments": [
+        {
+          "id": "f357e266-fb61-4c1c-b0cc-5a1923313ece",
+          "label": "Segment A",
+          "color": "#ff5733",
+          "weight": 50,
+          "prizeType": "coins",
+          "prizeAmount": 100,
+          "imageUrl": ""
+        },
+        {
+          "id": "efc25589-fca6-4f24-b5e5-699caacdb07c",
+          "label": "Segment B",
+          "color": "#c0c0c0",
+          "weight": 50,
+          "prizeType": "nothing",
+          "prizeAmount": 0,
+          "imageUrl": ""
+        }
+      ],
+      "maxSpinsPerUser": 3,
+      "spinCost": 0.14,
+      "backgroundColor": "#fffaaa",
+      "borderColor": "#567867",
+      "createdAt": "2026-03-29T08:05:54.644Z",
+      "updatedAt": "2026-03-29T08:05:54.644Z",
+      "id": "_KsCGgbUhGk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

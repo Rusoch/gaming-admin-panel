@@ -7,10 +7,7 @@ type Props = { children: ReactNode };
 
 type State = { error: Error | null };
 
-/**
- * Catches render errors under leaderboard routes so raffle/wheel and the shell
- * layout keep working.
- */
+
 export class LeaderboardFeatureErrorBoundary extends Component<Props, State> {
 	state: State = { error: null };
 

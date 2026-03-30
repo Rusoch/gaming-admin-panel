@@ -1,9 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import CloseIcon from "@mui/icons-material/Close";
-import RecyclingOutlinedIcon from "@mui/icons-material/RecyclingOutlined";
-import EditIcon from "@mui/icons-material/Edit";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import {
+	Close as CloseIcon,
+	Edit as EditIcon,
+	RecyclingOutlined as RecyclingOutlinedIcon,
+	Visibility as VisibilityIcon,
+} from "@mui/icons-material";
 import {
 	Alert,
 	Box,
@@ -25,25 +27,43 @@ import TablePagination from "@mui/material/TablePagination";
 import { isAxiosError } from "axios";
 import { ListPageSkeleton } from "@/shared/components/skeleton/AppSkeleton";
 import { BaseTable } from "@/shared/components/table/BaseTable";
-import { useToast } from "@/shared/composables/toast";
-import { useBatchUpdateLeaderboardStatus } from "../composables/useBatchUpdateLeaderboardStatus";
-import { useDeleteLeaderboard } from "../composables/useDeleteLeaderboard";
-import { useLeaderboardListState } from "../composables/useLeaderboardListState";
-import { useLeaderboards } from "../composables/useLeaderboards";
+import { useToast } from "@/shared/hooks/toast";
+import { useBatchUpdateLeaderboardStatus } from "../hooks/useBatchUpdateLeaderboardStatus";
+import { useDeleteLeaderboard } from "../hooks/useDeleteLeaderboard";
+import { useLeaderboardListState } from "../hooks/useLeaderboardListState";
+import { useLeaderboards } from "../hooks/useLeaderboards";
 import { leaderboardTableColumns } from "../config/leaderboard.config";
+import {
+	LEADERBOARD_BULK_STATUS_LABEL,
+	LEADERBOARD_STATUS_FILTER_LABEL,
+} from "../config/leaderboardStatusLabels";
 import type { Leaderboard } from "../types/leaderboard.types";
-import { useTableSort } from "@/shared/composables/useTableSort";
+import { useTableSort } from "@/shared/hooks/useTableSort";
 import {
 	ROUTES,
 	leaderboardDetailPath,
 	leaderboardEditPath,
 } from "@/shared/constants/routes";
+import { FeatureListIntro } from "@/shared/components/layout/FeatureListIntro";
+import {
+	LEADERBOARD_FEATURE_DESCRIPTION,
+	LEADERBOARD_LIST_TITLE,
+} from "@/shared/constants/featureCopy";
 
 const STATUS_OPTIONS = ["draft", "active", "completed"] as const;
 
 const LeaderboardPage = () => {
+	const [pendingDelete, setPendingDelete] = useState<Leaderboard | null>(null);
+	const [clearSelectionDialogOpen, setClearSelectionDialogOpen] = useState(false);
+	const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
+
+	const clearRowSelection = useCallback(() => {
+		setSelectedIds(new Set());
+		setClearSelectionDialogOpen(false);
+	}, []);
+
 	const { filters, setFilters, searchText, onSearchChange } =
-		useLeaderboardListState();
+		useLeaderboardListState({ onPageChange: clearRowSelection });
 	const { sort, handleSort } = useTableSort("-createdAt");
 
 	useEffect(() => {
@@ -58,21 +78,8 @@ const LeaderboardPage = () => {
 	const deleteMutation = useDeleteLeaderboard();
 	const batchStatusMutation = useBatchUpdateLeaderboardStatus();
 	const { showToast } = useToast();
-	const [pendingDelete, setPendingDelete] = useState<Leaderboard | null>(null);
-	const [clearSelectionDialogOpen, setClearSelectionDialogOpen] = useState(false);
-	const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
 
-	const rows = data?.data ?? [];
-
-	useEffect(() => {
-		setSelectedIds(new Set());
-	}, [filters.page]);
-
-	useEffect(() => {
-		if (selectedIds.size === 0) {
-			setClearSelectionDialogOpen(false);
-		}
-	}, [selectedIds.size]);
+	const rows = useMemo(() => data?.data ?? [], [data?.data]);
 
 	useEffect(() => {
 		const total = data?.total ?? 0;
@@ -211,8 +218,23 @@ const LeaderboardPage = () => {
 	}
 
 	return (
-		<div>
-			<h2>Leaderboard Page</h2>
+		<Box>
+			<FeatureListIntro
+				title={LEADERBOARD_LIST_TITLE}
+				description={LEADERBOARD_FEATURE_DESCRIPTION}
+				descriptionVariant="body2"
+				descriptionSx={{ fontSize: "0.8125rem", lineHeight: 1.55 }}
+				action={
+					<Button
+						variant="contained"
+						color="primary"
+						component={Link}
+						to={ROUTES.leaderboardsCreate}
+					>
+						Create leaderboard
+					</Button>
+				}
+			/>
 			{deleteErrorMessage ? (
 				<Alert severity="error" sx={{ mb: 2 }}>
 					{deleteErrorMessage}
@@ -225,18 +247,7 @@ const LeaderboardPage = () => {
 						: "Bulk status update failed"}
 				</Alert>
 			) : null}
-			<div>
-				<Box display="flex" justifyContent="flex-end" mb={2}>
-					<Button
-						variant="contained"
-						color="primary"
-						component={Link}
-						to={ROUTES.leaderboardsCreate}
-					>
-						Create New Leaderboard
-					</Button>
-				</Box>
-				<h2>Leaderboards</h2>
+			<Box>
 				<Stack
 					direction={{ xs: "column", sm: "row" }}
 					spacing={2}
@@ -283,7 +294,7 @@ const LeaderboardPage = () => {
 							{STATUS_OPTIONS.map((status) => (
 								<Chip
 									key={status}
-									label={status}
+									label={LEADERBOARD_STATUS_FILTER_LABEL[status]}
 									color={filters.status === status ? "primary" : "default"}
 									clickable
 									onClick={() =>
@@ -306,7 +317,7 @@ const LeaderboardPage = () => {
 							bgcolor: "action.hover",
 						}}
 						role="toolbar"
-						aria-label="Bulk actions for selected leaderboards"
+						aria-label="Bulk status: mark active, inactive, or completed"
 					>
 						<Typography variant="body2" sx={{ fontWeight: 600 }}>
 							{selectedIds.size} selected
@@ -326,8 +337,9 @@ const LeaderboardPage = () => {
 												status,
 											});
 											setSelectedIds(new Set());
+											const action = LEADERBOARD_BULK_STATUS_LABEL[status];
 											showToast(
-												`Updated ${ids.length} leaderboard(s) to ${status}`,
+												`${action}: ${ids.length} leaderboard(s)`,
 												"success",
 											);
 										} catch {
@@ -335,7 +347,7 @@ const LeaderboardPage = () => {
 										}
 									}}
 								>
-									Set {status}
+									{LEADERBOARD_BULK_STATUS_LABEL[status]}
 								</Button>
 							))}
 						</Stack>
@@ -374,7 +386,7 @@ const LeaderboardPage = () => {
 						rowsPerPageOptions={[5, 10, 25, 50]}
 					/>
 				</Box>
-			</div>
+			</Box>
 
 			<Dialog
 				open={Boolean(pendingDelete)}
@@ -436,7 +448,7 @@ const LeaderboardPage = () => {
 			</Dialog>
 
 			<Dialog
-				open={clearSelectionDialogOpen}
+				open={clearSelectionDialogOpen && selectedIds.size > 0}
 				onClose={() =>
 					batchStatusMutation.isPending
 						? undefined
@@ -490,7 +502,7 @@ const LeaderboardPage = () => {
 					</Button>
 				</DialogActions>
 			</Dialog>
-		</div>
+		</Box>
 	);
 };
 export default LeaderboardPage;

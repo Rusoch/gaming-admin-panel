@@ -1,3 +1,11 @@
+:root {
+	/* Brand neon green — primary UI accent (replaces default MUI blue when paired with theme). */
+	--gh-brand: #00e676;
+	--gh-on-brand: #0d0d0d;
+	--gh-brand-hover: #00c853;
+	--gh-brand-muted: rgba(0, 230, 118, 0.12);
+}
+
 button:not(:disabled),
 [role="button"]:not([aria-disabled="true"]) {
 	cursor: pointer;
